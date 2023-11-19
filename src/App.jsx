@@ -3,7 +3,7 @@ import axios from "axios";
 
 import "./App.css";
 
-import List from "./Components/List/List";
+import Table from "./Components/Table/Table";
 import Navbar from "./Components/Navbar/Navbar";
 
 function App() {
@@ -113,56 +113,58 @@ function App() {
         handleGroupValue={handleGroupValue}
         handleOrderValue={handleOrderValue}
       />
-      <div className="board-details-list">
-        {
+      <div className="board">
+        <div className="board-details-list">
           {
-            status: (
-              <>
-                {statusList.map((listItem) => (
-                  <List
-                    key={listItem}
-                    groupValue="status"
-                    orderValue={orderValue}
-                    listTitle={listItem}
-                    listIcon=""
-                    statusList={statusList}
-                    ticketDetails={ticketDetails}
-                  />
-                ))}
-              </>
-            ),
-            user: (
-              <>
-                {userList.map((listItem) => (
-                  <List
-                    key={listItem}
-                    groupValue="user"
-                    orderValue={orderValue}
-                    listTitle={listItem}
-                    listIcon=""
-                    userList={userList}
-                    ticketDetails={ticketDetails}
-                  />
-                ))}
-              </>
-            ),
-            priority: (
-              <>
-                {priorityList.map((listItem) => (
-                  <List
-                    key={listItem.priority}
-                    groupValue="priority"
-                    orderValue={orderValue}
-                    listTitle={listItem.priority}
-                    listIcon=""
-                    priorityList={priorityList}
-                    ticketDetails={ticketDetails}
-                  />
-                ))}
-              </>
-            ),
-          }[groupValue]
-        }
+            {
+              status: (
+                <>
+                  {statusList.map((listItem) => (
+                    <Table
+                      key={listItem}
+                      groupValue="status"
+                      orderValue={orderValue}
+                      listTitle={listItem}
+                      listIcon=""
+                      statusList={statusList}
+                      ticketDetails={ticketDetails}
+                    />
+                  ))}
+                </>
+              ),
+              user: (
+                <>
+                  {userList.map((listItem) => (
+                    <Table
+                      key={listItem}
+                      groupValue="user"
+                      orderValue={orderValue}
+                      listTitle={listItem}
+                      listIcon=""
+                      userList={userList}
+                      ticketDetails={ticketDetails}
+                    />
+                  ))}
+                </>
+              ),
+              priority: (
+                <>
+                  {priorityList.map((listItem) => (
+                    <Table
+                      key={listItem.priority}
+                      groupValue="priority"
+                      orderValue={orderValue}
+                      listTitle={listItem.priority}
+                      listIcon=""
+                      priorityList={priorityList}
+                      ticketDetails={ticketDetails}
+                    />
+                  ))}
+                </>
+              ),
+            }[groupValue]
+          }
+        </div>
       </div>
     </>
   );

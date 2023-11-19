@@ -1,10 +1,10 @@
 .card_container {
-    width: 100%;
+    width: 240px;
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: 0px 1px 0px 1px #ccc;
     background-color: white;
-    margin-bottom: 1rem;
+    margin: 5px;
 }
 
 .card_wrapper {
