@@ -113,59 +113,57 @@ function App() {
         handleGroupValue={handleGroupValue}
         handleOrderValue={handleOrderValue}
       />
-      <section className="board-details">
-        <div className="board-details-list">
+      <div className="board-details-list">
+        {
           {
-            {
-              status: (
-                <>
-                  {statusList.map((listItem) => (
-                    <List
-                      key={listItem}
-                      groupValue="status"
-                      orderValue={orderValue}
-                      listTitle={listItem}
-                      listIcon=""
-                      statusList={statusList}
-                      ticketDetails={ticketDetails}
-                    />
-                  ))}
-                </>
-              ),
-              user: (
-                <>
-                  {userList.map((listItem) => (
-                    <List
-                      key={listItem}
-                      groupValue="user"
-                      orderValue={orderValue}
-                      listTitle={listItem}
-                      listIcon=""
-                      userList={userList}
-                      ticketDetails={ticketDetails}
-                    />
-                  ))}
-                </>
-              ),
-              priority: (
-                <>
-                  {priorityList.map((listItem) => (
-                    <List
-                      key={listItem.priority}
-                      groupValue="priority"
-                      orderValue={orderValue}
-                      listTitle={listItem.priority}
-                      listIcon=""
-                      priorityList={priorityList}
-                      ticketDetails={ticketDetails}
-                    />
-                  ))}
-                </>
-              ),
-            }[groupValue]
-          }
-        </div>
-      </section>
+            status: (
+              <>
+                {statusList.map((listItem) => (
+                  <List
+                    key={listItem}
+                    groupValue="status"
+                    orderValue={orderValue}
+                    listTitle={listItem}
+                    listIcon=""
+                    statusList={statusList}
+                    ticketDetails={ticketDetails}
+                  />
+                ))}
+              </>
+            ),
+            user: (
+              <>
+                {userList.map((listItem) => (
+                  <List
+                    key={listItem}
+                    groupValue="user"
+                    orderValue={orderValue}
+                    listTitle={listItem}
+                    listIcon=""
+                    userList={userList}
+                    ticketDetails={ticketDetails}
+                  />
+                ))}
+              </>
+            ),
+            priority: (
+              <>
+                {priorityList.map((listItem) => (
+                  <List
+                    key={listItem.priority}
+                    groupValue="priority"
+                    orderValue={orderValue}
+                    listTitle={listItem.priority}
+                    listIcon=""
+                    priorityList={priorityList}
+                    ticketDetails={ticketDetails}
+                  />
+                ))}
+              </>
+            ),
+          }[groupValue]
+        }
+      </div>
     </>
   );
 }
