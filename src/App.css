@@ -1,0 +1,16 @@
+
+
+
+.board-details {
+  width: 100%;
+  height: calc(100vh - 68px);
+  background-color: #f0f1f4;
+  overflow-x: scroll;
+}
+
+.board-details-list {
+  width: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

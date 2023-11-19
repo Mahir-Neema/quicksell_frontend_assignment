@@ -1,70 +1,70 @@
-import React, { useEffect, useRef, useState } from "react";
-import { HiAdjustmentsHorizontal } from "react-icons/hi2";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import "./Navbar.css";
+import React, { useState } from 'react';
+import filterIcon from '../../Assets/Images/Tuning.svg';
+import downIcon from '../../Assets/Images/Down.svg';
+import './Navbar.css';
 
-function Navbar() {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
+export default function Navbar(props) {
+    const [isFilterVisible, setIsFilterVisible] = useState(false);
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!isDropdownOpen);
-  };
-
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setDropdownOpen(false);
+    function handleToggle(e, valueHandler) {
+        setIsFilterVisible(!isFilterVisible);
+        if (e.target.value !== undefined) {
+            valueHandler(e.target.value);
+        }
     }
-  };
 
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside);
+    function handleDisplayToggle(e) {
+        handleToggle(e, props.handleGroupValue);
+    }
 
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
+    function handleOrderingValue(e) {
+        handleToggle(e, props.handleOrderValue);
+    }
 
-  return (
-    <div className="navbar_container">
-      <div className="dropdown-container" ref={dropdownRef}>
-        <button
-          className="display_btn"
-          id="optionsButton"
-          onClick={toggleDropdown}
-        >
-          <HiAdjustmentsHorizontal />
-          Display
-          {/* {isDropdownOpen ? <IoIosArrowUp/>:<IoIosArrowDown />}  */}
-          <IoIosArrowDown className={`downarrow ${isDropdownOpen ? "open" : ""}`}/>
-        </button>
-        <div className={`dropdown-content ${isDropdownOpen ? "open" : ""}`}>
-          <div className="DropdownGroups">
-            <span>Grouping</span>
-            <select
-              className="Groupstyle"
-            >
-              <option value="status">Status</option>
-              <option value="user">User</option>
-              <option value="priority">Priority</option>
-            </select>
-          </div>
-
-          <div className="DropdownGroups">
-            <span>Ordering</span>
-            <select           
-              className="Groupstyle"
-              name="order"
-              id="order"
-            >
-              <option value="priority">Priority</option>
-              <option value="title">Title</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    return (
+        <>
+            <section className="nav">
+                <div className="nav-container">
+                    <div>
+                        <div className="nav-disp-btn" onClick={handleDisplayToggle}>
+                            <div className="nav-disp-icon nav-disp-filter">
+                                <img src={filterIcon} alt="icon" />
+                            </div>
+                            <div className="nav-disp-heading">
+                                Display
+                            </div>
+                            <div className="nav-disp-icon nav-disp-drop">
+                                <img src={downIcon} alt="icon" />
+                            </div>
+                        </div>
+                        <div className={isFilterVisible ? "nav-disp-dropdown nav-disp-dropdown-show" : "nav-disp-dropdown"}>
+                            <div className="nav-disp-filters">
+                                <div className="nav-dropdown-category">
+                                    Grouping
+                                </div>
+                                <div className="nav-dropdown-selector">
+                                    <select value={props.groupValue} onChange={handleDisplayToggle} className='nav-selector' name="grouping" id="">
+                                        <option value="status">Status</option>
+                                        <option value="user">User</option>
+                                        <option value="priority">Priority</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="nav-disp-filters">
+                                <div className="nav-dropdown-category">
+                                    Ordering
+                                </div>
+                                <div className="nav-dropdown-selector">
+                                    <select value={props.orderValue} onChange={handleOrderingValue} className='nav-selector' name="grouping" id="">
+                                        <option value="priority">Priority</option>
+                                        <option value="title">Title</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </>
+    );
 }
-
-export default Navbar;
