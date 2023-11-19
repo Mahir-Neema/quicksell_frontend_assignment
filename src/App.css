@@ -1,3 +1,6 @@
+.board{
+  margin: 10px;
+}
 
 .board-details-list {
   width: fit-content;
@@ -5,3 +8,16 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+@media screen and (min-width: 1300px) {
+  .board{
+    margin: 30px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .board{
+    margin: 90px;
+  }
+}
+
