@@ -4,21 +4,13 @@ import './Card.css';
 export default function Card(props) {
   return (
     <>
-      <div className="card-container">
-        <div className="card-id-wrapper">
+      <div className="card_container">
+        <div className="card_wrapper">
           <div className="card-id">{props.cardDetails.id}</div>
           <div className="card-profile">
-            <div className="card-profile-initial">
-              {props.cardDetails.userObj.name[0]}
-              {props.cardDetails.userObj.name[1]}
+            <div className="card-profile-pic">
+              <img className="card-profile-img" src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1700363772~exp=1700364372~hmac=4b8b8450ccda79609bf95581c8f94d50a0467307de18c32730d531cbc89e235b" alt="user profile"/>
             </div>
-            <div
-              className={
-                props.cardDetails.userObj.available
-                  ? 'card-profile-initial-available card-profile-initial-available-true'
-                  : 'card-profile-initial-available'
-              }
-            ></div>
           </div>
         </div>
         <div className="card-title">{props.cardDetails.title}</div>

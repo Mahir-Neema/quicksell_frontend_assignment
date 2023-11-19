@@ -1,4 +1,4 @@
-.card-container {
+.card_container {
     width: 100%;
     padding: 1rem;
     border-radius: 0.5rem;
@@ -8,7 +8,7 @@
     margin-bottom: 1rem;
 }
 
-.card-id-wrapper {
+.card_wrapper {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -16,7 +16,7 @@
 
 .card-id {
     color: #808184;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 500;
 }
 
@@ -33,8 +33,15 @@
     position: relative;
 }
 
-.card-profile-initial {
-    text-transform: uppercase;
+.card-profile-pic{
+    width: 25px;
+    height: 25px;
+    border: none;
+}
+.card-profile-img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
 
 .card-profile-initial-available-true {
